@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Airspace Link</title>
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Noto+Sans|Heebo+Sans|Nunito|Fjalla+One|PT+Serif|Caladea|Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+        <script src="https://js.arcgis.com/4.21/"></script>
+        <style>
+            #header {
+                background-color: black;
+                height: 100px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                margin-left: 5px;
+                margin-right: 5px;
+                background-image: url(photos/DJI_0431.JPG);
+                background-position: 100% 20.5%;
+                background-size: cover;
+            }
+            h2 {
+                font-family: "Nunito";
+                font-size: 30px;
+                font-weight: bold;
+                text-align-last: center; 
+                line-height: 65px;
+                text-shadow: 0 0 30px #000000, 0 0 30px #000000;
+                color: ghostwhite;
+            }
+            h3 {
+                font-family: 'Roboto', sans-serif;
+                font-weight: bolder;
+                text-shadow: 0 0 15px #00FFFF, 0 0 15px #00FFFF;
+                margin-left: 10px;
+            }
+            #esridash {
+                width: 1000px;
+                height: 410px;
+            }
+            .collapsible {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                padding: 18px;
+                width: 100%;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 15px;
+            }
+            .active, .collapsible:hover {
+                background-color: #00FFFF;
+            }
+            .content {
+                padding: 0 18px;
+                display: none;
+                overflow: hidden;
+                background-color: #f1f1f1;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="header" class="col-md-12">
+            <h2 class="text center">Airspace Link: Tech Challenge</h2>
+        </div>
+        <button type="button" class="collapsible">+ Flight Planning Tools</button>
+            <div class="content">
+                <h3 class="text left">Flight Planning Tools</h3>
+                <iframe id="iframe1" width="600" height="300" src="http://embed.flightaware.com/commercial/integrated/web/delay_map.rvt">flightaware</iframe>
+                <iframe id="iframe2" width="600" height="300" src="https://skyvector.com/">skyvector</iframe>
+            </div>
+        <div id="notebooks" class="collapsible2">
+           <h3 class="text left">  ArcScene Dashboard</h3>
+           <iframe width="1400" height="800" src="https://arcg.is/1n1imj"></iframe>
+        </div>
+        <div id="esridash" class="col-md-12">
+            <h3 class="text left"> UAS Incident Report Dashboard</h3>
+            <iframe width="1400" height="800" src="https://www.arcgis.com/apps/dashboards/bf22121984884253ba080cb89980ff30"></iframe>
+        </div>
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+
+            for (i = 0; i < coll.length; i++) {
+                coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                        content.style.display = "none";
+                    } else {
+                        content.style.display = "block";
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
